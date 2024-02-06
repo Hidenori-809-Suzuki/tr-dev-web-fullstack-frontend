@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "type": "卸し",
+        "date": "",
+        "unit": 6900,
+        "quantity": 2,
+        "price": 13800,
+        "inventory": 390
+    },
+    {
+        "id": 2,
+        "type": "",
+        "date": "",
+        "unit": 6900,
+        "quantity": 2,
+        "price": 13800,
+        "inventory": 390
+    },
+    {
+        "id": 3,
+        "type": "",
+        "date": "",
+        "unit": 6900,
+        "quantity": 2,
+        "price": 13800,
+        "inventory": 390
+    },
+    {
+        "id": 4,
+        "type": "",
+        "date": "",
+        "unit": 6900,
+        "quantity": 2,
+        "price": 13800,
+        "inventory": 390
+    },
+    {
+        "id": 5,
+        "type": "",
+        "date": "",
+        "unit": 6900,
+        "quantity": 2,
+        "price": 13800,
+        "inventory": 390
+    }
+]
