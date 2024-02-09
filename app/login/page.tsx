@@ -1,5 +1,6 @@
 'use client'
 
+import axios from "../../plugins/axios";
 import {
     createTheme,
     Box,
@@ -25,10 +26,11 @@ export default function Page() {
         handleSubmit,
         formState: { errors },
     } = useForm();
+
+    const [authError, setAuthError] = useState("");
     const router = useRouter();
 
     const defaultTheme = createTheme();
-
     const onSubmit = (event: any): void => {
         const data: FormData = {
             username: event.username,
@@ -39,7 +41,14 @@ export default function Page() {
     };
 
     const handleLogin = (data: FormData) => {
-        router.push("/inventory/products");
+        axios
+            .post("/api/inventory/login", data)
+            .then((response) => {
+                router.push("/inventory/products");
+            })
+            .catch(function(error){
+                setAuthError("ユーザー名またはパスワードに誤りがあります。");
+            });
     };
 
     return (
@@ -58,6 +67,11 @@ export default function Page() {
                         ログイン
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+                        {authError && (
+                            <Typography variant="body2" color="error">
+                                {authError}
+                            </Typography>
+                        )}{" "}
                         <TextField 
                             type="text"
                             id="username"
@@ -84,7 +98,7 @@ export default function Page() {
                                     message: "8文字以上の文字列にしてください",
                                 },
                             })}
-                            error={Boolean(errors.oassword)}
+                            error={Boolean(errors.password)}
                             helperText={errors.password?.message?.toString() || ""} />
                         <Button
                             variant="contained"
